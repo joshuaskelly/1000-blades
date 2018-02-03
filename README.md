@@ -18,6 +18,9 @@ Subscribe to 1000 Blades on the Steam Workshop!
 ## Dev Installation
 `$ pip install -r requirements.txt `
 
+## Dev Build
+`$ python generate.py`
+
 ## Contributors
 [![Joshua Skelton](https://avatars.githubusercontent.com/u/372642?s=130)](http://github.com/joshuaskelly) 
 ---

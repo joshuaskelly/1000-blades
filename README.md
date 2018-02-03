@@ -8,9 +8,9 @@
 ## Contributing
 You can contribute to the project in several ways:
 
-- *Pixel Art* Handy at pushing pixels? These sword parts won't draw themselves.
-- *Color Palettes* Exquisite taste in curating colors? We have a job for you.
-- *Knowledge* Secret procgen knowledge that would be perfect for this project? Enlighten us!
+- *Pixel Art:* Handy at pushing pixels? These sword parts won't draw themselves.
+- *Color Palettes:* Exquisite taste in curating colors? We have a job for you.
+- *Knowledge:* Secret procgen knowledge that would be perfect for this project? Enlighten us!
 
 ## Installation
 Subscribe to 1000 Blades on the Steam Workshop!

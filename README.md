@@ -19,9 +19,9 @@ Subscribe to 1000 Blades on the Steam Workshop!
 `$ pip install -r requirements.txt `
 
 ## Contributors
-[![Joshua Skelton](https://avatars.githubusercontent.com/u/372642?s=130)](http://github.com/joshuaskelly) |
----|---
-[Joshua Skelton](http://github.com/joshuaskelly) |
+[![Joshua Skelton](https://avatars.githubusercontent.com/u/372642?s=130)](http://github.com/joshuaskelly) 
+---
+[Joshua Skelton](http://github.com/joshuaskelly) 
 
 ## License
 MIT

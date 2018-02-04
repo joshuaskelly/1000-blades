@@ -4,16 +4,8 @@ import random
 
 from PIL import Image
 
-# Set the random seed to have deterministic results.
-random.seed("teddybear")
-
-# Load up individual pieces
-palettes = [os.path.normpath(g) for g in glob.glob('./images/palettes/*.png')]
-grips = [os.path.normpath(g) for g in glob.glob('./images/grips/*.png')]
-pommels = [os.path.normpath(g) for g in glob.glob('./images/pommels/*.png')]
-crossguards = [os.path.normpath(g) for g in glob.glob('./images/crossguards/*.png')]
-blades = [os.path.normpath(g) for g in glob.glob('./images/blades/*.png')]
-
+def calculate_possibilities():
+    return len(palettes) * len(grips) * len(pommels) * len(crossguards) * len(blades)
 
 def generate_sword_image():
     """Generates a sword image from pieces
@@ -43,15 +35,30 @@ def generate_sword_image():
 
     return composite
 
+if __name__ == "__main__":
+    print("Generating blades...")
 
-sheet_size = 32 * 16, 32 * 64
-sprite_sheet = Image.new('RGBA', sheet_size)
+    # Set the random seed to have deterministic results.
+    random.seed("teddybear")
 
-# Build the sprite sheet
-for x in range(0, sheet_size[0], 32):
-    for y in range(0, sheet_size[1], 32):
-        image = generate_sword_image()
-        sprite_sheet.paste(image, (x, y))
+    # Load up individual pieces
+    palettes = [os.path.normpath(g) for g in glob.glob('./images/palettes/*.png')]
+    grips = [os.path.normpath(g) for g in glob.glob('./images/grips/*.png')]
+    pommels = [os.path.normpath(g) for g in glob.glob('./images/pommels/*.png')]
+    crossguards = [os.path.normpath(g) for g in glob.glob('./images/crossguards/*.png')]
+    blades = [os.path.normpath(g) for g in glob.glob('./images/blades/*.png')]
 
-# Save the sprite sheet to file
-sprite_sheet.save('out.png')
+    print("Possibility space: {}".format(calculate_possibilities()))
+
+    sheet_size = 32 * 16, 32 * 64
+    sprite_sheet = Image.new('RGBA', sheet_size)
+
+    # Build the sprite sheet
+    for x in range(0, sheet_size[0], 32):
+        for y in range(0, sheet_size[1], 32):
+            image = generate_sword_image()
+            sprite_sheet.paste(image, (x, y))
+
+    # Save the sprite sheet to file
+    sprite_sheet.save('out.png')
+    print("Done!")

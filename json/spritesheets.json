@@ -1,0 +1,9 @@
+[
+    {
+        "columns": 16.0,
+        "filename": "textures/blades.png",
+        "scale": 0.5,
+        "name": "blades",
+        "y_offset": 0.25
+    }
+]

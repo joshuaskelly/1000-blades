@@ -1,4 +1,6 @@
+import errno
 import glob
+import json
 import os
 import random
 
@@ -73,8 +75,47 @@ def generate_sword_image():
     return composite
 
 
+def generate_sword_data(index):
+    """Generates sword JSON data
+
+    Returns:
+        Sword data as dict
+    """
+    with open('./json/sword.json') as file:
+        sword_data = json.loads(file.read())
+
+    sword_data['name'] = f'Sword {index}'
+    sword_data['tex'] = index
+    sword_data['brokenTex'] = index
+    sword_data['spriteAtlas'] = 'blades'
+
+    return sword_data
+
+
+def create_directory_structure():
+    """Generates the output mod directory structure
+
+    Raises:
+        If fails to create directory
+    """
+
+    def ensure_directory(path):
+        try:
+            os.makedirs(path)
+
+        except OSError as e:
+            if e.errno != errno.EEXIST:
+                raise
+
+    ensure_directory('./out/textures')
+    ensure_directory('./out/data')
+
+
 if __name__ == "__main__":
     print("Generating blades...")
+
+    # Create mod directory structure
+    create_directory_structure()
 
     # Set the random seed to have deterministic results.
     random.seed("teddybear")
@@ -91,12 +132,30 @@ if __name__ == "__main__":
     sheet_size = 32 * 16, 32 * 64
     sprite_sheet = Image.new('RGBA', sheet_size)
 
+    with open('./json/items.json') as file:
+        sword_definitions = json.loads(file.read())
+
     # Build the sprite sheet
-    for x in range(0, sheet_size[0], 32):
-        for y in range(0, sheet_size[1], 32):
+    for y in range(0, sheet_size[1], 32):
+        for x in range(0, sheet_size[0], 32):
+            index = y // 32 * sheet_size[0] // 32 + x // 32
             image = generate_sword_image()
             sprite_sheet.paste(image, (x, y))
 
+            s = generate_sword_data(index)
+            sword_definitions['unique'].append(s)
+
     # Save the sprite sheet to file
-    sprite_sheet.save('out.png')
+    sprite_sheet.save('./out/textures/blades.png')
+
+    # Save the item definitions to file
+    with open('./out/data/items.dat', 'w') as file:
+        file.write(json.dumps(sword_definitions, indent=4))
+
+    # Save the sprite sheet definition
+    with open('./out/data/spritesheets.dat', 'w') as file, open('./json/spritesheets.json') as json_data:
+        data = json.loads(json_data.read())
+        data[0]['columns'] = sheet_size[0] / 32
+        file.write(json.dumps(data, indent=4))
+
     print("Done!")

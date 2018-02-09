@@ -14,3 +14,6 @@
 *.pyc
 *.egg-info
 .cache
+
+# Ignore build artifacs
+out

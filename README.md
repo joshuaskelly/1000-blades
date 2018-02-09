@@ -21,6 +21,8 @@ Subscribe to 1000 Blades on the Steam Workshop!
 ## Dev Build
 `$ python generate.py`
 
+Will create an out directory and place the generated mod files there.
+
 ## Contributors
 [![Joshua Skelton](https://avatars.githubusercontent.com/u/372642?s=130)](http://github.com/joshuaskelly) | [![Jazz Mickle](https://avatars.githubusercontent.com/u/7083717?s=130)](http://github.com/jmickle66666666)
 ---|---

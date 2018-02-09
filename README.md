@@ -1,7 +1,7 @@
 # [![1000-blades](.media/header.gif)](https://github.com/JoshuaSkelly/1000-blades)
 
 # 1000-blades
-[![License: GPL v3](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![Python 3](https://img.shields.io/badge/python-3-blue.svg)](https://www.python.org/) [![Discord](https://img.shields.io/badge/discord-chat-7289DA.svg)](https://discord.gg/VHRbZTC)
+[![License: GPL v3](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/) [![Discord](https://img.shields.io/badge/discord-chat-7289DA.svg)](https://discord.gg/VHRbZTC)
 
 1000 Blades is a community mod project for the video game Delver. The goal is to procedurally generate 1000 swords.
 

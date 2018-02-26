@@ -80,6 +80,18 @@ def generate_sword_image():
     return composite
 
 
+damage_type_color = {
+    'MAGIC': {"x": 0.6172, "y": 0.0937, "z": 0.7695},
+    'FIRE': {"x": 1.0, "y": 0.0, "z": 0.0},
+    'ICE': {"x": 0.0, "y": 0.0, "z": 1.0},
+    'LIGHTNING': {"x": 1.0, "y": 1.0, "z": 1.0},
+    'POISON': {"x": 0.1529, "y": 1.0, "z": 0.3333},
+    'HEALING': {"x": 0.0, "y": 1.0, "z": 1.0},
+    'PARALYZE': {"x": 0.9294, "y": 0.7882, "z": 0.1921},
+    'VAMPIRE': {"x": 0.13, "y": 0.1, "z": 0.15}
+}
+
+
 def generate_sword_data(index):
     """Generates sword JSON data
 
@@ -183,6 +195,13 @@ def generate_sword_data(index):
             0.1
         ]
     )
+
+    # Add a light?
+    if (sword_data['damageType'] != 'PHYSICAL' and random.random() < 0.125):
+        with open('./json/light.json') as file:
+            light_data = json.loads(file.read())
+            light_data['lightColor'] = damage_type_color[sword_data['damageType']]
+            sword_data['attached'].append(light_data)
 
     return sword_data
 

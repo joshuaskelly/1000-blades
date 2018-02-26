@@ -20,5 +20,6 @@
     "chargeAnimation": "daggerCharge",
     "dropSound": "drops/drop_metal_01.mp3,drops/drop_metal_02.mp3,drops/drop_metal_03.mp3",
     "minItemLevel":  2,
-    "maxItemLevel":  8
+    "maxItemLevel":  8,
+    "attached": []
 }

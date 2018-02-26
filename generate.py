@@ -141,6 +141,48 @@ def generate_sword_data(index):
         'PARALYZE': 'magic-item',
         'VAMPIRE': 'magic-item-red'
     }[sword_data['damageType']]
+    sword_data['attackAnimation'] = numpy.random.choice(
+        [
+            'swordAttack',
+            'swordAttackSlow',
+            'daggerAttack',
+            'maceAttack'
+        ],
+        p=[
+            0.4,
+            0.2,
+            0.35,
+            0.05
+        ]
+    )
+    sword_data['attackStrongAnimation'] = numpy.random.choice(
+        [
+            'swordAttackStrong',
+            'thrustAttack',
+            'daggerAttackStrong',
+            'maceAttackStrong'
+        ],
+        p=[
+            0.4,
+            0.2,
+            0.35,
+            0.05
+        ]
+    )
+    sword_data['chargeAnimation'] = numpy.random.choice(
+        [
+            'swordCharge',
+            'thrustCharge',
+            'daggerCharge',
+            'maceCharge'
+        ],
+        p=[
+            0.35,
+            0.2,
+            0.35,
+            0.1
+        ]
+    )
 
     return sword_data
 

@@ -1,0 +1,152 @@
+{
+    "root":[
+        "#sword-root.capitalizeAll#",
+        "#sword-root.capitalizeAll#",
+        "#sword-root.capitalizeAll#",
+        "#sword-root-partitive.capitalizeAll#"
+    ],
+    "sword-root": [
+        "#mysterious-sword-root#"
+    ],
+    "mysterious-sword-root": [
+        "#mysterious-portmanteau#",
+        "#mysterious-verb+noun#"
+    ],
+    "sword-root-partitive": [
+        "#sword-synonym# of the #noun-phrase#",
+        "#body-part-noun# of the #noun-phrase#"
+    ],
+    "named-sword":[
+        "#name.possesive.capitalize# #sword-synonym#",
+        "#name.possesive.capitalize# #hurt-verb.er#"
+    ],
+    "name":[
+        "Joshua",
+        "Chad"
+    ],
+    "sword-synonym":[
+        "blade",
+        "spike",
+        "dirk",
+        "brand",
+        "saber",
+        "sliver",
+        "shard",
+        "barb",
+        "razor"
+    ],
+    "hurt-verb":[
+        "sever",
+        "stab",
+        "mangle",
+        "eviscerate",
+        "ravage",
+        "destroy",
+        "lacerate",
+        "gash",
+        "cleave",
+        "carve",
+        "slash",
+        "rip",
+        "maul",
+        "maim",
+        "sunder",
+        "wreck",
+        "tear",
+        "flay",
+        "slice",
+        "rend",
+        "break",
+        "bash",
+        "thrash",
+        "split",
+        "slay"
+    ],
+    "mysterious-portmanteau": [
+        "#mysterious-noun##body-part-noun#",
+        "#mysterious-noun##hurt-verb.er#"
+
+    ],
+    "mysterious-verb+noun": [
+        "#mysterious-verb.ing# #mysterious-noun#",
+        "#mysterious-verb.ing# #body-part-noun#"
+    ],
+    "mysterious-noun": [
+        "night",
+        "raven",
+        "phantom",
+        "shadow",
+        "mist",
+        "gloom",
+        "twilight",
+        "dread",
+        "serpent",
+        "wolf",
+        "shade",
+        "murk",
+        "umbra",
+        "dark",
+        "onyx",
+        "void",
+        "echo",
+        "hound",
+        "martyr",
+        "saint",
+        "moon"
+    ],
+    "mysterious-adjective": [
+        "singular",
+        "many",
+        "bloodless",
+        "broken",
+        "missing",
+        "forgotten",
+        "dolorous",
+        "fallen",
+        "fractured",
+        "ill-gotten",
+        "banished",
+        "hidden",
+        "thousand",
+        "sightless",
+        "entombed",
+        "acrid",
+        "starry",
+        "elder"
+    ],
+    "mysterious-verb": [
+        "skulk",
+        "shriek",
+        "sleep",
+        "freeze",
+        "break",
+        "melt",
+        "sneak",
+        "lurk",
+        "chant",
+        "creep",
+        "slither",
+        "yawn",
+        "shiver",
+        "falter",
+        "fade"
+    ],
+    "body-part-noun": [
+        "tooth",
+        "tongue",
+        "fang",
+        "eye",
+        "hand",
+        "heart",
+        "talon",
+        "spine",
+        "maw",
+        "tusk",
+        "hand",
+        "fist"
+    ],
+    "noun-phrase": [
+        "#mysterious-adjective# #mysterious-noun#",
+        "#mysterious-adjective# #body-part-noun#"
+    ]
+}

@@ -1,1 +1,4 @@
+numpy==1.14.0
 Pillow==4.1.1
+roman==2.0.0
+tracery==0.1.1

@@ -4,8 +4,13 @@ import json
 import os
 import random
 
+import numpy
+import tracery
+from tracery.modifiers import base_english
+
 from PIL import Image
 
+from extended_english import extended_english
 
 def calculate_image_possibilities():
     """Computes the total possible combinations for sword pieces
@@ -84,10 +89,58 @@ def generate_sword_data(index):
     with open('./json/sword.json') as file:
         sword_data = json.loads(file.read())
 
-    sword_data['name'] = f'Sword {index}'
+    with open('./json/names.json') as file:
+        name_rules = json.loads(file.read())
+
+    name_grammar = tracery.Grammar(name_rules)
+    name_grammar.add_modifiers(base_english)
+    name_grammar.add_modifiers(extended_english)
+
+    sword_data['name'] = f'Blade {index + 1}:\n{name_grammar.flatten("#root#")}'
     sword_data['tex'] = index
     sword_data['brokenTex'] = index
     sword_data['spriteAtlas'] = 'blades'
+    sword_data['baseDamage'] = int(numpy.random.normal(10, 4))
+    sword_data['randDamage'] = int(numpy.random.normal(10, 4))
+    sword_data['durability'] = int(numpy.random.normal(100, 40))
+    sword_data['knockback'] = numpy.random.normal(0.15, 0.025)
+    sword_data['reach'] = numpy.random.normal(0.5, 0.125) + 0.25
+    sword_data['speed'] = ((1 - (sword_data['baseDamage'] + sword_data['randDamage']) / 44) * 2.0) + 0.25
+    sword_data['damageType'] = numpy.random.choice(
+        [
+            'PHYSICAL',
+            'MAGIC',
+            'FIRE',
+            'ICE',
+            'LIGHTNING',
+            'POISON',
+            'HEALING',
+            'PARALYZE',
+            'VAMPIRE'
+        ],
+        p=[
+            0.5,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.04,
+            0.0,
+            0.03,
+            0.03
+        ]
+    )
+    sword_data['shader'] = {
+        'PHYSICAL': None,
+        'MAGIC': 'magic-item-purple',
+        'FIRE': 'magic-item-red',
+        'ICE': 'magic-item',
+        'LIGHTNING': 'magic-item-white',
+        'POISON': 'magic-item-green',
+        'HEALING': 'magic-item',
+        'PARALYZE': 'magic-item',
+        'VAMPIRE': 'magic-item-red'
+    }[sword_data['damageType']]
 
     return sword_data
 
@@ -118,7 +171,8 @@ if __name__ == "__main__":
     create_directory_structure()
 
     # Set the random seed to have deterministic results.
-    random.seed("teddybear")
+    random.seed('teddybear')
+    numpy.random.seed(8888888)
 
     # Load up individual pieces
     palettes = [os.path.normpath(g) for g in glob.glob('./images/palettes/*.png')]
